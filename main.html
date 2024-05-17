@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Cards</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #3498db; /* Radian background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 90%;
+  }
+  .card {
+    background: #2ecc71; /* Cool radian color for cards */
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    margin: 10px 0;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    transition: transform 0.3s ease; /* Add transition for smooth zoom effect */
+  }
+  .card:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+  }
+  .card img {
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 0 auto 10px;
+    cursor: pointer;
+  }
+  .card h2 {
+    text-align: center;
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  .card p {
+    text-align: center;
+    margin: 10px 0 0;
+    font-size: 0.8rem;
+    color: #666;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  .additional-info {
+    display: none;
+    text-align: center;
+    margin-top: 10px;
+  }
+  input[type="file"] {
+    display: none;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .overlay p {
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  /* Skip Button */
+  .skip-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .skip-button:hover {
+    background-color: #333;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <label for="file-upload-1">
+        <img src="icon/upload.svg" alt="Upload Icon">
+      </label>
+      <input id="file-upload-1" type="file">
+      <h2>Birth Certificate</h2>
+      <p onclick="toggleInfo('info-1')">Please upload your Birth certificate, press here to know how to collect</p>
+      <div id="info-1" class="additional-info">
+        <li>Birth Certificate</li>
+        <li>Photographs</li>
+        <li>Marriage Certificate</li>
+        <li>Parents' or Spouse's NID (if applicable)</li>
+        <li>Proof Address</li>
+        <li>Citizenship Certificate (If Applicable)</li>
+      </div>
+    </div>
+    <div class="card">
+      <label for="file-upload-2">
+        <img src="icon/upload.svg" alt="Upload Icon">
+      </label>
+      <input id="file-upload-2" type="file">
+      <h2>National Identity Card</h2>
+      <p onclick="toggleInfo('info-2')">Don't have one? Click here</p>
+      <div id="info-2" class="additional-info">
+        <li>Birth Certificate</li>
+        <li>Photographs</li>
+        <li>Marriage Certificate</li>
+        <li>Parents' or Spouse's NID (if applicable)</li>
+        <li>Proof Address</li>
+        <li>Citizenship Certificate (If Applicable)</li>
+      </div>
+    </div>
+    <div class="card">
+      <label for="file-upload-3">
+        <img src="icon/upload.svg" alt="Upload Icon">
+      </label>
+      <input id="file-upload-3" type="file">
+      <h2>Passport</h2>
+      <p onclick="toggleInfo('info-3')">Don't have one? Click here</p>
+      <div id="info-3" class="additional-info">
+        <li>Birth Certificate</li>
+        <li>Photographs</li>
+        <li>Marriage Certificate</li>
+        <li>Parents' or Spouse's NID (if applicable)</li>
+        <li>Proof Address</li>
+        <li>Citizenship Certificate (If Applicable)</li>
+      </div>
+    </div>
+  </div>
+  <!-- Skip Button -->
+  <button class="skip-button" onclick="window.location.href='main2.html'">Skip</button>
+
+  <script>
+    function toggleInfo(infoId) {
+      var info = document.getElementById(infoId);
+      if (info.style.display === "none") {
+        info.style.display = "block";
+      } else {
+        info.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>

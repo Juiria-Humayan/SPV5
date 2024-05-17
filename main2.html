@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Cards</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #2980b9, #2c3e50);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 90%;
+  }
+  .card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: 10px 0;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+  }
+  .card img {
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 0 auto 10px;
+    cursor: pointer;
+  }
+  .card h2 {
+    text-align: center;
+    margin: 0;
+    font-size: 1.5rem;
+    color: #2980b9; /* Cool Blue Color */
+  }
+  .card p {
+    text-align: center;
+    margin: 10px 0 0;
+    font-size: 0.8rem;
+    color: #34495e; /* Darker Shade of Blue */
+  }
+  input[type="file"] {
+    display: none;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .overlay p {
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+    /* Skip Button */
+    .skip-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 5px 10px;
+            font-size: 14px;
+            background-color: #555;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .skip-button:hover {
+            background-color: #333;
+        }
+
+  /* Lock Icon */
+  .lock-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  /* Shaking Animation */
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-5px); }
+    40% { transform: translateX(5px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+  }
+
+  .locked {
+    animation: shake 0.5s ease;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="card" id="indian-visa-card">
+      <img src="icon/upload.svg" alt="Upload Icon" onclick="redirectToMain3()">
+      <input id="file-upload-1" type="file">
+      <h2>Indian Tourist Visa</h2>
+      <p id="indian-visa-price">0.99$ </p>
+    </div>
+    <div class="card">
+      <label for="file-upload-2">
+        <img class="lock-icon" src="icon/user-lock.svg" alt="Lock Icon" onclick="toggleLock(this); event.preventDefault();">
+      </label>
+      <input id="file-upload-2" type="file">
+      <h2>German Visa</h2>
+      <p>2$ Get your German Visa</p>
+    </div>
+    <div class="card">
+      <label for="file-upload-3">
+        <img class="lock-icon" src="icon/user-lock.svg" alt="Lock Icon" onclick="toggleLock(this); event.preventDefault();">
+      </label>
+      <input id="file-upload-3" type="file">
+      <h2>Student Scholarship</h2>
+      <p>0.3$ to Unlock your Student Visa and study Abroad</p>
+    </div>
+  </div>
+   <!-- Skip Button -->
+   <button class="skip-button" onclick="window.location.href='main3.html'">Skip</button>
+
+   <script>
+     function toggleLock(lockIcon) {
+       lockIcon.classList.add('locked');
+       setTimeout(() => {
+         lockIcon.classList.remove('locked');
+       }, 500);
+     }
+
+     function redirectToMain3() {
+       window.location.href = 'main3.html';
+     }
+   </script>
+</body>
+</html>
